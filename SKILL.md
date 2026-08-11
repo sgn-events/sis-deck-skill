@@ -81,7 +81,7 @@ Choosing between them:
 ```json
 {
   "meta": {
-    "event": "…", "date": "26 May 2026", "city": "Paris",
+    "event": "…", "date": "25 May 2027", "city": "Paris",
     "logos": { "lockupOnLight": "lockup-black.png", "lockupOnDark": "lockup-white.png" }
   },
   "slides": [ { "archetype": "photo-cover", "label": "Cover", "…": "…" } ]
@@ -99,7 +99,19 @@ Choosing between them:
 - Logo entries require `maxHeight` and `maxWidth`. Set them by eye, per logo.
 
 Full field-by-field reference: `schema/content.schema.json`.
-Worked example covering all nine archetypes: `examples/content.json`.
+
+Two worked examples, both covering all nine archetypes:
+
+- `examples/sis-2027.json` — **the live deck.** SGN Investment Summit, 25 May 2027, Paris.
+  Copy this to start a new deck, and edit this one for SIS itself.
+- `examples/content.json` — the reference deck as authored (dated 26 May 2026, the
+  originally planned date). It exists only to prove the templates still reproduce
+  `reference/deck.html`. Do not edit it.
+
+**SIS 2027 is the first edition** — the summit did not run in 2026. Where a slide mentions a
+2026 event it means the **SPORT[GEN] Summit**, which did: slide 3's figures and slide 4's
+speaker roster are SPORT[GEN] track record. Never relabel them as a past SIS edition, and
+never present SPORT[GEN] speakers as confirmed for SIS.
 
 ## Running it
 

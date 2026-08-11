@@ -22,11 +22,11 @@ Used standalone, it is just a script — no install needed.
 ## Usage
 
 ```bash
-python3 scripts/new_deck.py content.json --check
+python3 scripts/new_deck.py examples/sis-2027.json --check
 ```
 
 ```bash
-python3 scripts/new_deck.py content.json --out ./out
+python3 scripts/new_deck.py examples/sis-2027.json --out ./out
 ```
 
 Then preview:
@@ -59,13 +59,31 @@ templates/                  one HTML fragment per archetype + partials, with {{p
 schema/content.schema.json  field-by-field reference for content.json
 scripts/new_deck.py         the generator and validator
 scripts/verify_roundtrip.py proves the templates still reproduce the reference deck
-examples/content.json       the SGN Investment Summit deck, as content
+examples/sis-2027.json      the live deck: SGN Investment Summit 2027, 25 May 2027, Paris
+examples/content.json       the reference deck as authored — the round-trip proof, do not edit
 examples/ASSETS.md          where the sample images come from and why they aren't committed
-reference/deck.html         the canonical deck this system was derived from
+reference/deck.html         the frozen design handoff this system was derived from
 runtime/                    deck-stage.js, styles.css, tokens/ — copied into every deck
 docs/TEMPLATING-REPORT.md   what in the design resisted templating, and why
 tests/test_validator.py     29 guardrail tests
 ```
+
+## The two example files, and the 2026 date in the reference
+
+**SIS 2027 is the first edition of the SGN Investment Summit.** It did not run in 2026.
+Where these slides mention a 2026 event they mean the **SPORT[GEN] Summit**, which did run
+— that is the track record on slide 3 (1,200 attendees, 100+ speakers, 2,300+ meetings) and
+the speaker roster on slide 4. Do not relabel those as a past SIS edition.
+
+- `examples/sis-2027.json` — **the live deck.** 25 May 2027, Paris. Start here, and edit
+  this one.
+- `examples/content.json` — the reference deck exactly as it was authored, dated
+  26 May 2026 because that was the originally planned date. Its only job is to prove the
+  templates still reproduce `reference/deck.html` byte-for-byte. **Leave it alone**; editing
+  it breaks the round-trip check below.
+
+`reference/deck.html` is likewise frozen: it is the design handoff artifact the nine
+templates were extracted from, not a deck anyone should present.
 
 ## The nine archetypes
 
@@ -81,7 +99,7 @@ See `SKILL.md` for what each is for and how to choose between them.
 {
   "meta": {
     "event": "Your Summit",
-    "date": "26 May 2026",
+    "date": "25 May 2027",
     "city": "Paris",
     "logos": { "lockupOnLight": "lockup-black.png", "lockupOnDark": "lockup-white.png" }
   },
@@ -90,10 +108,10 @@ See `SKILL.md` for what each is for and how to choose between them.
       "archetype": "photo-cover",
       "label": "Cover",
       "photo": { "src": "photos/venue.jpg", "alt": "The main stage" },
-      "kicker": "New for 2026",
+      "kicker": "New for 2027",
       "headline": "Europe’s leading sport [[investment]] event",
       "lead": "One sentence that says what this is.",
-      "factRail": ["[ Where deals begin ]", "26 May 2026", "Paris, France"]
+      "factRail": ["[ Where deals begin ]", "25 May 2027", "Paris, France"]
     }
   ]
 }

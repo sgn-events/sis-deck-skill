@@ -1,0 +1,771 @@
+{
+  "_comment": "SGN Investment Summit 2027 — the live deck. SIS 2027 is the FIRST edition of this summit; it did not run in 2026. Every claim about a 2026 event on these slides is about the SPORT[GEN] Summit, which did run, and is presented as track record. reference/deck.html is dated 26 May 2026 because that was the originally planned date — it is a frozen design artifact and is not this deck.",
+  "meta": {
+    "event": "SGN Investment Summit",
+    "title": "SGN Investment Summit 2027 — Deck",
+    "date": "25 May 2027",
+    "city": "Paris",
+    "bannerMeta": "25 May 2027 · Paris",
+    "logos": {
+      "lockupOnLight": "sgn-investment-summit-black.png",
+      "lockupOnDark": "sgn-investment-summit-white.png"
+    },
+    "sampleAssets": "sgn-internal"
+  },
+  "slides": [
+    {
+      "archetype": "photo-cover",
+      "label": "Cover",
+      "photo": {
+        "src": "photos/sportgen-panel.jpg",
+        "alt": "Private capital in sport panel, SPORT[GEN] Summit",
+        "objectPosition": "center 42%"
+      },
+      "kicker": "New for 2027\n",
+      "headline": "Europe’s leading sport [[investment]] event",
+      "lead": "The capital community of sport, from private equity and sovereign funds to venture and family offices, convenes for two days inside the SPORT[GEN] Summit during Roland-Garros week.",
+      "factRail": [
+        "[ Where deals begin ]",
+        "25 May 2027",
+        "Paris, France"
+      ]
+    },
+    {
+      "archetype": "split-argument-photo",
+      "label": "Our Mission",
+      "eyebrow": "Our Mission",
+      "headline": "The most [[exclusive]] sport investment room in the world",
+      "paras": [
+        "The SGN Investment Summit is **dedicated to the people who raise, deploy and allocate capital across sport**: private equity, sovereign funds, venture, family offices, banks and the rights holders shaping the market.",
+        "Held inside the SPORT[GEN] Summit in Paris, every introduction is curated rather than left to chance. This is where **capital meets opportunity**: deal flow is sourced, mandates take shape and long-term partnerships begin."
+      ],
+      "stats": [
+        {
+          "figure": "200+",
+          "label": "Active investors",
+          "note": "PE · sovereign · VC · family offices"
+        },
+        {
+          "figure": "80+",
+          "label": "LPs",
+          "note": "Limited partners in the room"
+        },
+        {
+          "figure": "300+",
+          "label": "Organisations",
+          "note": "Funds, clubs, rights holders"
+        },
+        {
+          "figure": "90%",
+          "label": "Director-level & up",
+          "note": "Decision-makers only"
+        }
+      ],
+      "metaLeft": {
+        "label": "Audience",
+        "text": "PE, sovereign funds, venture, family offices, banks & advisors, rights holders & clubs."
+      },
+      "metaRight": {
+        "label": "When / Where",
+        "text": "25 May 2027\nParis, France"
+      },
+      "photo": {
+        "src": "photos/fireside-marc-lasry.jpg",
+        "alt": "Fireside with Marc Lasry, Founder of Avenue Capital, SPORT[GEN] Summit"
+      },
+      "photoCaption": "[ Fireside with Marc Lasry · Avenue Capital ]"
+    },
+    {
+      "archetype": "credibility",
+      "label": "Brought to you by",
+      "eyebrow": "The pedigree",
+      "headline": "Brought to you by [[the team behind]]",
+      "thumbsLabel": "Selected SPORT[GEN] 2026 speakers",
+      "thumbs": [
+        {
+          "name": "Romy Gai",
+          "org": "FIFA",
+          "photo": {
+            "src": "speakers/sgn-romy-gai.png",
+            "alt": "Romy Gai"
+          }
+        },
+        {
+          "name": "Eno Polo",
+          "org": "ATP Tour",
+          "photo": {
+            "src": "speakers/sgn-eno-polo.png",
+            "alt": "Eno Polo"
+          }
+        },
+        {
+          "name": "Dominic Thiem",
+          "org": "Grand Slam Winner",
+          "photo": {
+            "src": "speakers/sgn-dominic-thiem.png",
+            "alt": "Dominic Thiem"
+          }
+        },
+        {
+          "name": "Kameryn Stanhope",
+          "org": "IBM",
+          "photo": {
+            "src": "speakers/sgn-kameryn-stanhope.jpg",
+            "alt": "Kameryn Stanhope",
+            "objectPosition": "30% 8%",
+            "scale": 1.83,
+            "transformOrigin": "30% 10%"
+          }
+        },
+        {
+          "name": "Caroline Garcia",
+          "org": "Tennis Insider Club",
+          "photo": {
+            "src": "speakers/sgn-caroline-garcia.jpg",
+            "alt": "Caroline Garcia",
+            "objectPosition": "center 14%",
+            "scale": 1.7,
+            "transformOrigin": "center 16%"
+          }
+        },
+        {
+          "name": "Teodora Ivanova",
+          "org": "WTA Ventures",
+          "photo": {
+            "src": "speakers/sgn-teodora.jpg",
+            "alt": "Teodora",
+            "objectPosition": "center 18%",
+            "scale": 1.08,
+            "transformOrigin": "center 20%"
+          }
+        },
+        {
+          "name": "Brett Gosper",
+          "org": "NFL",
+          "photo": {
+            "src": "speakers/sgn-nfl-speaker.jpg",
+            "alt": "To confirm",
+            "objectPosition": "center 20%",
+            "scale": 1.08,
+            "transformOrigin": "center 20%"
+          }
+        },
+        {
+          "name": "Richard Heaselgrave",
+          "org": "Paris Saint-Germain",
+          "photo": {
+            "src": "speakers/sgn-speaker-tbd.jpg",
+            "alt": "To confirm",
+            "objectPosition": "center 18%",
+            "scale": 1.08,
+            "transformOrigin": "center 20%"
+          }
+        },
+        {
+          "name": "Patrick Mouratoglou",
+          "org": "UTS",
+          "photo": {
+            "src": "speakers/sgn-patrick-mouratoglou.jpg",
+            "alt": "Patrick Mouratoglou",
+            "objectPosition": "center 9%",
+            "scale": 1.78,
+            "transformOrigin": "center 11%"
+          }
+        },
+        {
+          "name": "David Coulthard",
+          "org": "Velocity Experience",
+          "photo": {
+            "src": "speakers/sgn-david-coulthard.jpg",
+            "alt": "David Coulthard",
+            "objectPosition": "center 10%",
+            "scale": 1.75,
+            "transformOrigin": "center 10%"
+          }
+        }
+      ],
+      "parentLogo": {
+        "src": "sportgen-logo-black.png",
+        "alt": "SPORT[GEN]"
+      },
+      "parentWordmark": "Summit",
+      "paras": [
+        "The SGN Investment Summit is created by the team behind the **SPORT[GEN] Summit**, Europe’s gathering for the business of sport, carrying forward the same focus on curation, seniority and real outcomes.",
+        "SPORT[GEN] proved a model that avoids the usual trade-off between scale and substance: a global stage that still feels **intentional, private and built for deals**."
+      ],
+      "figureRows": [
+        {
+          "figure": "1,200",
+          "text": "Senior attendees across **800+ companies** in the business of sport"
+        },
+        {
+          "figure": "100+",
+          "text": "World-class speakers on stage, including **Marc Lasry** and **Romy Gai (FIFA)**"
+        },
+        {
+          "figure": "2,300+",
+          "text": "Facilitated **1-1 meetings** and introductions across the two days"
+        }
+      ]
+    },
+    {
+      "archetype": "portrait-wall",
+      "label": "Speakers",
+      "eyebrow": "Speakers · finance segment",
+      "qualifier": "SPORT[GEN] 2026 · + 100 across the programme",
+      "columns": 5,
+      "rows": 3,
+      "people": [
+        {
+          "name": "Marc Lasry",
+          "role": "Co-Founder, Chairman & CEO",
+          "org": "Avenue Capital",
+          "photo": {
+            "src": "speakers/marc-lasry.jpg",
+            "alt": "Marc Lasry"
+          }
+        },
+        {
+          "name": "Adnan Khalef",
+          "role": "Managing Director",
+          "org": "The Carlyle Group",
+          "photo": {
+            "src": "speakers/adnan-khalef.jpg",
+            "alt": "Adnan Khalef"
+          }
+        },
+        {
+          "name": "António Caçorino",
+          "role": "CEO & Founder",
+          "org": "Apex",
+          "photo": {
+            "src": "speakers/antonio-cacorino.jpg",
+            "alt": "Antonio Cacorino"
+          }
+        },
+        {
+          "name": "Paolo Della Rovere",
+          "role": "Managing Director",
+          "org": "Morgan Stanley",
+          "photo": {
+            "src": "speakers/paolo-della-rovere.jpg",
+            "alt": "Paolo Della Rovere"
+          }
+        },
+        {
+          "name": "Adriana Crovetto",
+          "role": "Investor",
+          "org": "Gamma Waves Partners",
+          "photo": {
+            "src": "speakers/adriana-crovetto.jpg",
+            "alt": "Adriana Crovetto"
+          }
+        },
+        {
+          "name": "Andy Marston",
+          "role": "Head of Corporate Ventures",
+          "org": "The Players Fund",
+          "photo": {
+            "src": "speakers/andy-marston.jpg",
+            "alt": "Andy Marston"
+          }
+        },
+        {
+          "name": "Arjun Kapur",
+          "role": "Vice President",
+          "org": "Left Lane Capital",
+          "photo": {
+            "src": "speakers/arjun-kapur.jpg",
+            "alt": "Arjun Kapur"
+          }
+        },
+        {
+          "name": "Arnaud Caudoux",
+          "role": "Deputy CEO",
+          "org": "Bpifrance",
+          "photo": {
+            "src": "speakers/arnaud-caudoux.jpg",
+            "alt": "Arnaud Caudoux"
+          }
+        },
+        {
+          "name": "Bex Smith",
+          "role": "CEO & Founder",
+          "org": "Crux Football",
+          "photo": {
+            "src": "speakers/bex-smith.jpg",
+            "alt": "Bex Smith",
+            "objectPosition": "center 35%",
+            "scale": 1.5,
+            "transformOrigin": "center 40%"
+          }
+        },
+        {
+          "name": "Charlie Stebbings",
+          "role": "Head of Sport",
+          "org": "20VC",
+          "photo": {
+            "src": "speakers/charlie-stebbings.jpg",
+            "alt": "Charlie Stebbings"
+          }
+        },
+        {
+          "name": "Danny Menken",
+          "role": "Co-Founder & General Partner",
+          "org": "Athvance Capital",
+          "photo": {
+            "src": "speakers/danny-menken.jpg",
+            "alt": "Danny Menken"
+          }
+        },
+        {
+          "name": "Kushaan Ahuja",
+          "role": "Partner",
+          "org": "Will Ventures",
+          "photo": {
+            "src": "speakers/kushaan-ahuja.jpg",
+            "alt": "Kushaan Ahuja"
+          }
+        },
+        {
+          "name": "Kyang Yung",
+          "role": "Chief Investment Officer",
+          "org": "Gamma Waves Partners",
+          "photo": {
+            "src": "speakers/kyang-yung.jpg",
+            "alt": "Kyang Yung"
+          }
+        },
+        {
+          "name": "Mark Wyatt",
+          "role": "Managing Director",
+          "org": "Alvarez & Marsal",
+          "photo": {
+            "src": "speakers/mark-wyatt.jpg",
+            "alt": "Mark Wyatt"
+          }
+        },
+        {
+          "name": "Mofses Kechichian",
+          "role": "Managing Director",
+          "org": "Trail Capital",
+          "photo": {
+            "src": "speakers/mofses-kechichian.jpg",
+            "alt": "Mofses Kechichian"
+          }
+        }
+      ]
+    },
+    {
+      "archetype": "category-matrix",
+      "label": "Who’s in the Room",
+      "eyebrow": "Who’s in the room",
+      "qualifier": "[ 2026 attendees & 2027 projected attendees ]",
+      "columns": 3,
+      "categories": [
+        {
+          "name": "Private equity",
+          "items": [
+            "Carlyle",
+            "CVC Capital Partners",
+            "Avenue Capital",
+            "RedBird Capital",
+            "Arctos Partners",
+            "Apex",
+            "Permira",
+            "Turenne Capital"
+          ]
+        },
+        {
+          "name": "Sovereign funds",
+          "items": [
+            {
+              "name": "Public Investment Fund",
+              "qualifier": "PIF"
+            },
+            "Qatar Investment Authority",
+            "Mubadala",
+            "Abu Dhabi Investment Authority",
+            "Qatar Sports Investments",
+            "Bpifrance",
+            "Groupe Caisse des Dépôts"
+          ]
+        },
+        {
+          "name": "Venture capital",
+          "items": [
+            "20VC",
+            "Left Lane",
+            "Will Ventures",
+            "Athvance",
+            "Athletico Ventures",
+            "Interconnected Ventures",
+            "OVNI Capital",
+            "Headline"
+          ]
+        },
+        {
+          "name": "Family offices",
+          "items": [
+            "Gamma Waves",
+            "Eren",
+            "Minah",
+            {
+              "name": "AVT Premium",
+              "qualifier": "Eden Hazard"
+            },
+            {
+              "name": "LORI6 Ventures",
+              "qualifier": "Ciryl Gane"
+            },
+            {
+              "name": "Excellence Sports Nation",
+              "qualifier": "Aurélien Tchouaméni"
+            },
+            "Come Finance"
+          ]
+        },
+        {
+          "name": "Banks & advisors",
+          "items": [
+            "Goldman Sachs",
+            "Morgan Stanley",
+            "BNP Paribas",
+            "UBS",
+            "Lazard",
+            "Rothschild & Co AM",
+            "The Raine Group",
+            "Main Street Advisors"
+          ]
+        },
+        {
+          "name": "Rights holders & clubs",
+          "items": [
+            "City Football Group",
+            "Paris Saint-Germain",
+            "WTA Ventures",
+            "LaLiga",
+            "LFP Media",
+            "Crux Football",
+            "TRAIL"
+          ]
+        }
+      ]
+    },
+    {
+      "archetype": "data-three-zone",
+      "label": "Who’s Attending",
+      "kicker": "Paris · 25 May 2027",
+      "headline": "Who’s [[attending]]\nSGN 2027",
+      "statRows": [
+        {
+          "figure": "80+",
+          "label": "LPs"
+        },
+        {
+          "figure": "200+",
+          "label": "Active investors"
+        },
+        {
+          "figure": "120+",
+          "label": "Investment funds"
+        },
+        {
+          "figure": "60+",
+          "label": "Rights holders & clubs"
+        },
+        {
+          "figure": "15+",
+          "label": "Sovereign wealth funds"
+        },
+        {
+          "figure": "40+",
+          "label": "Countries represented"
+        }
+      ],
+      "barsLabel": "Seniority (%)",
+      "bars": [
+        {
+          "label": "Partner / Managing Director",
+          "value": 45
+        },
+        {
+          "label": "Principal / VP / Director",
+          "value": 22
+        },
+        {
+          "label": "C-Suite & Founders",
+          "value": 20
+        },
+        {
+          "label": "Head of / Investment Lead",
+          "value": 13
+        }
+      ],
+      "shareLabel": "International presence (%)",
+      "shareBar": [
+        {
+          "label": "France",
+          "value": 34
+        },
+        {
+          "label": "Rest of EMEA",
+          "value": 30
+        },
+        {
+          "label": "MENA",
+          "value": 16
+        },
+        {
+          "label": "North America",
+          "value": 12
+        },
+        {
+          "label": "Asia-Pacific",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "archetype": "logo-wall-quotes",
+      "label": "Media Presence",
+      "eyebrow": "Media @ SGN",
+      "headline": "Media [[presence]]",
+      "lead": "40+ international media outlets represented, led by a bespoke synergy with SportBusiness, the event’s official media partner.",
+      "logos": [
+        {
+          "src": "media/financial-times.png",
+          "alt": "Financial Times",
+          "maxHeight": 54,
+          "maxWidth": 270
+        },
+        {
+          "src": "media/fichier-44.png",
+          "alt": "Sky",
+          "maxHeight": 60,
+          "maxWidth": 150
+        },
+        {
+          "src": "media/bein.png",
+          "alt": "beIN Media Group",
+          "maxHeight": 70,
+          "maxWidth": 190
+        },
+        {
+          "src": "media/layer.png",
+          "alt": "AFP",
+          "maxHeight": 54,
+          "maxWidth": 200
+        },
+        {
+          "src": "media/logo-1431.png",
+          "alt": "SportBusiness",
+          "maxHeight": 46,
+          "maxWidth": 300
+        },
+        {
+          "src": "media/logo-1506.png",
+          "alt": "Forbes",
+          "maxHeight": 58,
+          "maxWidth": 230
+        },
+        {
+          "src": "media/sbc.png",
+          "alt": "Sport Business Club",
+          "maxHeight": 72,
+          "maxWidth": 230
+        },
+        {
+          "src": "media/canal-plus.png",
+          "alt": "Canal+",
+          "maxHeight": 40,
+          "maxWidth": 200,
+          "keepColor": true
+        },
+        {
+          "src": "media/logo-1503.png",
+          "alt": "M6",
+          "maxHeight": 74,
+          "maxWidth": 120
+        },
+        {
+          "src": "media/gazzetta.png",
+          "alt": "La Gazzetta dello Sport",
+          "maxHeight": 42,
+          "maxWidth": 360
+        },
+        {
+          "src": "media/logo-1470.png",
+          "alt": "L’Équipe",
+          "maxHeight": 48,
+          "maxWidth": 240
+        },
+        {
+          "src": "media/logo-1507.png",
+          "alt": "Le Point",
+          "maxHeight": 56,
+          "maxWidth": 230
+        },
+        {
+          "src": "media/logo-1505.png",
+          "alt": "BFM Business",
+          "maxHeight": 66,
+          "maxWidth": 180
+        },
+        {
+          "src": "media/logotheque-bandeau.png",
+          "alt": "france.tv",
+          "maxHeight": 46,
+          "maxWidth": 220
+        },
+        {
+          "src": "media/rmc.png",
+          "alt": "RMC Sport",
+          "maxHeight": 64,
+          "maxWidth": 180
+        },
+        {
+          "src": "media/logo-vector2.png",
+          "alt": "Maddyness",
+          "maxHeight": 48,
+          "maxWidth": 260
+        },
+        {
+          "src": "media/logo-13.png",
+          "alt": "Sport Buzz Business",
+          "maxHeight": 62,
+          "maxWidth": 160
+        },
+        {
+          "src": "media/logo-10.png",
+          "alt": "vibes",
+          "maxHeight": 56,
+          "maxWidth": 150
+        },
+        {
+          "src": "media/logoblanc.png",
+          "alt": "Les Echos",
+          "maxHeight": 50,
+          "maxWidth": 260
+        }
+      ],
+      "quotesLabel": "In the press",
+      "quotes": [
+        {
+          "thumb": {
+            "src": "media/press/press-business-insider.png",
+            "alt": "Business Insider"
+          },
+          "quote": "“The global sports business community convenes in Paris on May 26.”"
+        },
+        {
+          "thumb": {
+            "src": "media/press/press-podcast.png",
+            "alt": "SPORT[GEN] podcast feature"
+          },
+          "quote": "“On the Seine at SPORT[GEN] Summit in Paris” (podcast)"
+        },
+        {
+          "thumb": {
+            "src": "media/press/press-sbb.png",
+            "alt": "Sport Buzz Business"
+          },
+          "quote": "“A successful baptism of fire for the SPORT[GEN] Summit.”"
+        },
+        {
+          "thumb": {
+            "src": "media/press/press-tradingview.png",
+            "alt": "TradingView"
+          },
+          "quote": "“French sport, a new area of investment for foreign funds.”"
+        }
+      ]
+    },
+    {
+      "archetype": "pricing-tiers",
+      "label": "Sponsorship Summary",
+      "eyebrow": "Sponsorship Opportunities",
+      "qualifier": "[ Summary ]",
+      "headline": "Choose your [[package]]",
+      "tiers": [
+        {
+          "name": "Gold",
+          "price": "25,000€ + VAT",
+          "category": "Standard",
+          "includes": "Includes Community Access at [SGN] Summit",
+          "benefits": [
+            "**Official partner status** across the summit.",
+            {
+              "text": "**Brand visibility**:",
+              "subs": [
+                "Logo on website, on-site sponsor wall and networking app."
+              ]
+            },
+            "Access to the **attendee & investor list**.",
+            "Access to the **investor networking lounge**.",
+            "**VIP Dinner**: 1 seat.",
+            "**3 Investor** + **1 VIP Investor** passes for your team."
+          ]
+        },
+        {
+          "name": "Platinum",
+          "price": "40,000€ + VAT",
+          "category": "Premium",
+          "includes": "Includes Bronze Sponsorship Package at [SGN] Summit",
+          "benefits": [
+            "A **co-branded session or panel** on a summit stage.",
+            "A **speaking slot** in a curated investor roundtable.",
+            {
+              "text": "**Official partner status**:",
+              "subs": [
+                "Logo on website, on-site sponsor wall and floor plan.",
+                "Newsletter, social media and networking app."
+              ]
+            },
+            "**Curated 1:1 investor introductions** (selected matches).",
+            "Access to the **attendee & investor list**.",
+            "**VIP Dinner**: 4 seats · **6 Investor** + **2 VIP Investor** passes."
+          ]
+        },
+        {
+          "name": "Diamond",
+          "price": "60,000€ + VAT",
+          "category": "Exclusive",
+          "includes": "Includes Silver Sponsorship Package at [SGN] Summit",
+          "featured": true,
+          "benefits": [
+            "**Main-stage sponsoring**, incl. the Investment Summit “presented by [Your Brand]”.",
+            "**Opening or closing keynote**: your speaking moment on the main stage.",
+            "A **branded panel or fireside**, curated with our programme team.",
+            {
+              "text": "**Full sponsorship visibility**:",
+              "subs": [
+                "Headline partner status, logo on website, sponsor wall & floor plan.",
+                "Newsletter, social media, networking app and on-stage ad rotation."
+              ]
+            },
+            "**Concierge 1:1 investor introductions** and the full attendee & investor list.",
+            "**VIP Dinner**: a private table (8 seats) · **12 Investor** + **4 VIP Investor** passes."
+          ]
+        }
+      ]
+    },
+    {
+      "archetype": "closing-photo-cta",
+      "label": "Roland-Garros",
+      "eyebrow": "Partner with us",
+      "qualifier": "[ Roland-Garros week · Paris ]",
+      "headline": "Roland-Garros [[×]] SPORT[GEN]",
+      "lead": "Access Roland-Garros tickets for you and your company through our partners. **Get in touch for partnership packages.**",
+      "photo": {
+        "src": "photos/roland-garros.jpg",
+        "alt": "Court Philippe-Chatrier, Roland-Garros",
+        "objectPosition": "center 66%"
+      },
+      "photoCaptions": [
+        "[ Court Philippe-Chatrier ]",
+        "Roland-Garros · Paris"
+      ]
+    }
+  ]
+}
