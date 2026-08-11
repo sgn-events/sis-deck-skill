@@ -1,0 +1,12 @@
+      <section data-label="{{label}}" style="background:var(--bg);color:var(--fg);overflow:hidden;">{{{banner}}}
+        <div style="position:absolute;inset:0;padding:96px 144px 68px;display:flex;flex-direction:column;">
+          <div style="display:flex;align-items:center;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--mute);">
+            <span style="display:flex;align-items:center;gap:20px;white-space:nowrap;"><span style="width:40px;height:1px;background:var(--fg);display:inline-block;"></span>{{eyebrow}}</span>
+            <span style="font-size:15px;letter-spacing:0.14em;white-space:nowrap;">{{qualifier}}</span>
+          </div>
+          <h2 style="margin:18px 0 0;font-weight:800;font-size:{{headline_size}}px;line-height:0.9;letter-spacing:-0.035em;text-transform:uppercase;">{{{headline}}}</h2>
+          <div style="margin-top:30px;flex:1;min-height:0;display:grid;grid-template-columns:repeat({{tier_count}},1fr);gap:24px;">
+{{{tiers}}}
+          </div>
+        </div>
+      </section>

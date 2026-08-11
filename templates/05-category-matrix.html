@@ -1,0 +1,11 @@
+      <section data-label="{{label}}" style="background:var(--bg);color:var(--fg);overflow:hidden;">{{{banner}}}
+        <div style="position:absolute;inset:0;padding:96px 144px 76px;display:flex;flex-direction:column;">
+          <div style="display:flex;align-items:center;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--mute);">
+            <span style="display:flex;align-items:center;gap:24px;white-space:nowrap;"><span style="width:44px;height:1px;background:var(--fg);display:inline-block;"></span>{{eyebrow}}</span>
+            <span style="font-size:16px;letter-spacing:0.14em;white-space:nowrap;">{{qualifier}}</span>
+          </div>
+          <div style="margin-top:26px;display:grid;grid-template-columns:repeat({{columns}},1fr);grid-auto-rows:1fr;flex:1;min-height:0;">
+{{{cells}}}
+          </div>
+        </div>
+      </section>

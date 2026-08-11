@@ -1,0 +1,33 @@
+      <section data-label="{{label}}" style="background:var(--bg);color:var(--fg);overflow:hidden;">{{{banner}}}
+        <div style="position:absolute;inset:0;padding:94px 0 74px;display:grid;grid-template-columns:0.9fr 1px 1.0fr 1px 1.02fr;">
+          <!-- ZONE 1 · title + stat rail -->
+          <div style="padding:16px 56px 0 144px;display:flex;flex-direction:column;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mute);">{{kicker}}</div>
+            <h2 style="margin:18px 0 0;font-weight:800;font-size:{{headline_size}}px;line-height:0.92;letter-spacing:-0.035em;text-transform:uppercase;">{{{headline}}}</h2>
+            <div style="margin-top:auto;display:flex;flex-direction:column;">
+{{{stat_rows}}}
+            </div>
+          </div>
+          <div style="background:var(--line);"></div>
+          <!-- ZONE 2 · horizontal bars -->
+          <div style="padding:16px 46px 0 54px;display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mute);"><span style="color:var(--fg);">▸</span>{{bars_label}}</div>
+            <div style="margin-top:auto;margin-bottom:auto;display:flex;flex-direction:column;gap:32px;padding:20px 0;">
+{{{bars}}}
+            </div>
+          </div>
+          <div style="background:var(--line);"></div>
+          <!-- ZONE 3 · stacked share bar + legend -->
+          <div style="padding:16px 144px 0 54px;display:flex;flex-direction:column;">
+            <div style="display:flex;align-items:center;gap:12px;font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:0.16em;text-transform:uppercase;color:var(--mute);"><span style="color:var(--fg);">▸</span>{{share_label}}</div>
+            <div style="margin-top:auto;margin-bottom:auto;padding:20px 0;">
+              <div style="display:flex;height:54px;width:100%;gap:2px;">
+{{{share_segments}}}
+              </div>
+              <div style="margin-top:28px;display:flex;flex-direction:column;">
+{{{legend_rows}}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>

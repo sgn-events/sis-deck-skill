@@ -1,0 +1,17 @@
+      <section data-label="{{label}}" style="background:var(--bg);color:var(--fg);overflow:hidden;">{{{banner}}}
+        <div style="position:absolute;inset:0;padding:100px 144px 64px;display:flex;flex-direction:column;">
+          <div style="display:flex;align-items:center;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--mute);">
+            <span style="display:flex;align-items:center;gap:24px;white-space:nowrap;"><span style="width:44px;height:1px;background:var(--fg);display:inline-block;"></span>{{eyebrow}}</span>
+            <span style="font-size:16px;letter-spacing:0.14em;white-space:nowrap;">{{qualifier}}</span>
+          </div>
+          <h2 style="margin:24px 0 0;font-weight:700;font-size:{{headline_size}}px;line-height:0.96;letter-spacing:-0.03em;text-transform:uppercase;">{{{headline}}}</h2>
+          <p style="margin:20px 0 0;max-width:1240px;font-size:24px;line-height:1.5;color:var(--dim);">{{{lead}}}</p>
+          <div style="margin-top:32px;flex:1;min-height:0;position:relative;border:1px solid var(--line);overflow:hidden;background:var(--panel-2);">
+            <img src="{{photo_src}}" style="width:100%;height:100%;object-fit:cover;object-position:{{photo_position}};display:block;" alt="{{photo_alt}}">
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:36px 28px 16px;display:flex;align-items:flex-end;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.6));">
+              <span>{{caption_left}}</span>
+              <span style="opacity:0.85;">{{caption_right}}</span>
+            </div>
+          </div>
+        </div>
+      </section>

@@ -1,0 +1,416 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sportgensummit.com/schema/sis-deck-content.schema.json",
+  "title": "SIS deck content",
+  "description": "Input for scripts/new_deck.py. The generator is the authority: it enforces rules this schema cannot express (exactly one [[silver]] run per headline, share-bar totals, tier price order, asset existence, and the SGN sample-asset fence). Validating against this schema is a convenience, not a substitute for `new_deck.py --check`.",
+  "type": "object",
+  "required": ["meta", "slides"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": { "$ref": "#/$defs/meta" },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/slide" }
+    }
+  },
+  "$defs": {
+    "meta": {
+      "type": "object",
+      "required": ["event", "logos"],
+      "additionalProperties": false,
+      "properties": {
+        "event": { "type": "string", "minLength": 1, "description": "Event name. Used for logo alt text and the default <title>." },
+        "title": { "type": "string", "description": "Browser/tab title. Defaults to \"<event> — Deck\"." },
+        "date": { "type": "string", "description": "Human date, e.g. \"26 May 2026\". Required unless bannerMeta is given." },
+        "city": { "type": "string", "description": "e.g. \"Paris\". Required unless bannerMeta is given." },
+        "bannerMeta": { "type": "string", "description": "Right-hand side of the running banner. Defaults to \"<date> · <city>\"." },
+        "lang": { "type": "string", "default": "en" },
+        "width": { "type": "integer", "default": 1920 },
+        "height": { "type": "integer", "default": 1080 },
+        "sampleAssets": {
+          "const": "sgn-internal",
+          "description": "Unlocks the rights-restricted SGN sample assets. Only examples/content.json may set this."
+        },
+        "logos": {
+          "type": "object",
+          "required": ["lockupOnLight", "lockupOnDark"],
+          "additionalProperties": false,
+          "properties": {
+            "lockupOnLight": { "type": "string", "description": "Event lockup for the light running banner (a black one-colour mark)." },
+            "lockupOnDark": { "type": "string", "description": "Event lockup for the dark photo cover (a white one-colour mark)." }
+          }
+        }
+      }
+    },
+
+    "image": {
+      "description": "Either a path relative to the assets root, or an object. Paths must resolve to a real file; the generator copies only what is referenced.",
+      "oneOf": [
+        { "type": "string", "minLength": 1 },
+        {
+          "type": "object",
+          "required": ["src", "alt"],
+          "additionalProperties": false,
+          "properties": {
+            "src": { "type": "string", "minLength": 1 },
+            "alt": { "type": "string", "minLength": 1 },
+            "objectPosition": { "type": "string", "description": "CSS object-position, e.g. \"center 15%\". Photographic framing is not derivable from content." },
+            "scale": { "type": "number", "exclusiveMinimum": 0, "description": "transform: scale() for a tighter crop. Requires transformOrigin." },
+            "transformOrigin": { "type": "string", "description": "CSS transform-origin, e.g. \"center 16%\"." },
+            "maxHeight": { "type": "number", "exclusiveMinimum": 0, "description": "Logo wall only: optical height cap in px." },
+            "maxWidth": { "type": "number", "exclusiveMinimum": 0, "description": "Logo wall only: optical width cap in px." },
+            "keepColor": { "type": "boolean", "default": false, "description": "Logo wall only. Skips filter:brightness(0) for lockups whose licence forbids recolouring. The documented exception, not a preference." }
+          }
+        }
+      ]
+    },
+
+    "headline": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\[\\[[^\\]]+\\]\\]",
+      "description": "Uppercased by CSS. Exactly one [[run]] carries the silver text gradient — the deck's only accent. Use \\n for a hard line break."
+    },
+    "copy": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Body copy. **bold** becomes the deck's <strong>; \\n becomes <br>. No raw HTML, no colours, no emoji."
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Plain text. No markup."
+    },
+    "headlineSize": {
+      "type": "integer",
+      "minimum": 24,
+      "maximum": 160,
+      "description": "Override the archetype's default headline size in px. The reference deck itself uses 56/58/64/74/78/120."
+    },
+
+    "slide": {
+      "type": "object",
+      "required": ["archetype", "label"],
+      "properties": {
+        "archetype": {
+          "enum": [
+            "photo-cover", "split-argument-photo", "credibility", "portrait-wall",
+            "category-matrix", "data-three-zone", "logo-wall-quotes", "pricing-tiers",
+            "closing-photo-cta"
+          ]
+        },
+        "label": { "$ref": "#/$defs/label", "description": "Name in the thumbnail rail. Must be unique across the deck." }
+      },
+      "allOf": [
+        { "if": { "properties": { "archetype": { "const": "photo-cover" } } },
+          "then": { "$ref": "#/$defs/photoCover" } },
+        { "if": { "properties": { "archetype": { "const": "split-argument-photo" } } },
+          "then": { "$ref": "#/$defs/splitArgumentPhoto" } },
+        { "if": { "properties": { "archetype": { "const": "credibility" } } },
+          "then": { "$ref": "#/$defs/credibility" } },
+        { "if": { "properties": { "archetype": { "const": "portrait-wall" } } },
+          "then": { "$ref": "#/$defs/portraitWall" } },
+        { "if": { "properties": { "archetype": { "const": "category-matrix" } } },
+          "then": { "$ref": "#/$defs/categoryMatrix" } },
+        { "if": { "properties": { "archetype": { "const": "data-three-zone" } } },
+          "then": { "$ref": "#/$defs/dataThreeZone" } },
+        { "if": { "properties": { "archetype": { "const": "logo-wall-quotes" } } },
+          "then": { "$ref": "#/$defs/logoWallQuotes" } },
+        { "if": { "properties": { "archetype": { "const": "pricing-tiers" } } },
+          "then": { "$ref": "#/$defs/pricingTiers" } },
+        { "if": { "properties": { "archetype": { "const": "closing-photo-cta" } } },
+          "then": { "$ref": "#/$defs/closingPhotoCta" } }
+      ]
+    },
+
+    "photoCover": {
+      "required": ["photo", "kicker", "headline", "lead", "factRail"],
+      "additionalProperties": false,
+      "properties": {
+        "archetype": true, "label": true, "headlineSize": { "$ref": "#/$defs/headlineSize" },
+        "photo": { "$ref": "#/$defs/image", "description": "Full-bleed, stays in colour under the dark scrim. The one photograph in the deck that is not grayscaled." },
+        "kicker": { "$ref": "#/$defs/copy", "description": "Top-right mono line." },
+        "headline": { "$ref": "#/$defs/headline" },
+        "lead": { "$ref": "#/$defs/copy" },
+        "factRail": {
+          "type": "array", "minItems": 3, "maxItems": 3,
+          "items": { "$ref": "#/$defs/label" },
+          "description": "Three mono cells: left, centre (emphasised), right."
+        }
+      }
+    },
+
+    "splitArgumentPhoto": {
+      "required": ["eyebrow", "headline", "paras", "stats", "metaLeft", "metaRight", "photo", "photoCaption"],
+      "additionalProperties": false,
+      "properties": {
+        "archetype": true, "label": true, "headlineSize": { "$ref": "#/$defs/headlineSize" },
+        "eyebrow": { "$ref": "#/$defs/label" },
+        "headline": { "$ref": "#/$defs/headline" },
+        "paras": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/copy" } },
+        "stats": {
+          "type": "array", "minItems": 1, "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["figure", "label", "note"],
+            "additionalProperties": false,
+            "properties": {
+              "figure": { "$ref": "#/$defs/label" },
+              "label": { "$ref": "#/$defs/label" },
+              "note": { "$ref": "#/$defs/label" }
+            }
+          }
+        },
+        "metaLeft": {
+          "type": "object", "required": ["label", "text"], "additionalProperties": false,
+          "properties": { "label": { "$ref": "#/$defs/label" }, "text": { "$ref": "#/$defs/copy" } },
+          "description": "Prose pair: a mono label over a 18px/600 sentence."
+        },
+        "metaRight": {
+          "type": "object", "required": ["label", "text"], "additionalProperties": false,
+          "properties": { "label": { "$ref": "#/$defs/label" }, "text": { "$ref": "#/$defs/copy" } },
+          "description": "Mono pair: a mono label over uppercase mono lines. Use \\n between lines."
+        },
+        "photo": { "$ref": "#/$defs/image", "description": "Full-height bordered insert, grayscaled. Fills its frame; no crop controls." },
+        "photoCaption": { "$ref": "#/$defs/label" }
+      }
+    },
+
+    "credibility": {
+      "required": ["eyebrow", "headline", "thumbsLabel", "thumbs", "parentLogo", "parentWordmark", "paras", "figureRows"],
+      "additionalProperties": false,
+      "properties": {
+        "archetype": true, "label": true, "headlineSize": { "$ref": "#/$defs/headlineSize" },
+        "eyebrow": { "$ref": "#/$defs/label" },
+        "headline": { "$ref": "#/$defs/headline" },
+        "thumbsLabel": { "$ref": "#/$defs/label" },
+        "thumbColumns": { "type": "integer", "minimum": 2, "maximum": 6, "default": 5 },
+        "thumbs": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "org", "photo"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "$ref": "#/$defs/label" },
+              "org": { "$ref": "#/$defs/label" },
+              "photo": { "$ref": "#/$defs/image" }
+            }
+          }
+        },
+        "parentLogo": { "$ref": "#/$defs/image", "description": "Parent-brand mark, pinned to the bottom of the column." },
+        "parentWordmark": { "$ref": "#/$defs/label", "description": "Wide-tracked mono word under the parent logo." },
+        "paras": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/copy" } },
+        "figureRows": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["figure", "text"],
+            "additionalProperties": false,
+            "properties": {
+              "figure": { "$ref": "#/$defs/label", "description": "Set at 94px. Keep it short." },
+              "text": { "$ref": "#/$defs/copy" }
+            }
+          }
+        }
+      }
+    },
+
+    "portraitWall": {
+      "required": ["eyebrow", "qualifier", "people"],
+      "additionalProperties": false,
+      "properties": {
+        "archetype": true, "label": true,
+        "eyebrow": { "$ref": "#/$defs/label" },
+        "qualifier": { "$ref": "#/$defs/label", "description": "Right-hand mono note in the header row." },
+        "columns": { "type": "integer", "minimum": 2, "maximum": 6, "default": 5 },
+        "rows": { "type": "integer", "minimum": 1, "maximum": 5, "description": "Defaults to ceil(people / columns). people must fit columns × rows." },
+        "people": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "role", "org", "photo"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "$ref": "#/$defs/label" },
+              "role": { "$ref": "#/$defs/label" },
+              "org": { "$ref": "#/$defs/label" },
+              "photo": { "$ref": "#/$defs/image", "description": "Defaults to object-position: center 15%." }
+            }
+          },
+          "description": "Indices [01].. are generated from array order. Never invent a name or an affiliation."
+        }
+      }
+    },
+
+    "categoryMatrix": {
+      "required": ["eyebrow", "qualifier", "categories"],
+      "additionalProperties": false,
+      "properties": {
+        "archetype": true, "label": true,
+        "eyebrow": { "$ref": "#/$defs/label" },
+        "qualifier": { "$ref": "#/$defs/label" },
+        "columns": { "type": "integer", "minimum": 2, "maximum": 4, "default": 3 },
+        "categories": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "items"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "$ref": "#/$defs/label" },
+              "items": {
+                "type": "array", "minItems": 1,
+                "items": {
+                  "oneOf": [
+                    { "$ref": "#/$defs/label" },
+                    {
+                      "type": "object",
+                      "required": ["name"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "name": { "$ref": "#/$defs/label" },
+                        "qualifier": { "$ref": "#/$defs/label", "description": "Rendered in parentheses, one step down and muted." }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "description": "Cell borders collapse automatically. Six cells in a 3×2 grid is the reference composition."
+        }
+      }
+    },
+
+    "dataThreeZone": {
+      "required": ["kicker", "headline", "statRows", "barsLabel", "bars", "shareLabel", "shareBar"],
+      "additionalProperties": false,
+      "properties": {
+        "archetype": true, "label": true, "headlineSize": { "$ref": "#/$defs/headlineSize" },
+        "kicker": { "$ref": "#/$defs/label" },
+        "headline": { "$ref": "#/$defs/headline" },
+        "statRows": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["figure", "label"], "additionalProperties": false,
+            "properties": { "figure": { "$ref": "#/$defs/label" }, "label": { "$ref": "#/$defs/label" } }
+          }
+        },
+        "barsLabel": { "$ref": "#/$defs/label" },
+        "bars": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["label", "value"], "additionalProperties": false,
+            "properties": {
+              "label": { "$ref": "#/$defs/label" },
+              "value": { "type": "number", "minimum": 0, "maximum": 100, "description": "Percent. Drives both the printed figure and the bar width." }
+            }
+          }
+        },
+        "shareLabel": { "$ref": "#/$defs/label" },
+        "shareBar": {
+          "type": "array", "minItems": 2, "maxItems": 5,
+          "items": {
+            "type": "object", "required": ["label", "value"], "additionalProperties": false,
+            "properties": {
+              "label": { "$ref": "#/$defs/label" },
+              "value": { "type": "number", "minimum": 0, "maximum": 100 }
+            }
+          },
+          "description": "Must sum to 100. Greys are assigned from the system's five-step ramp in order; a sixth segment would need a tone the system does not define."
+        }
+      }
+    },
+
+    "logoWallQuotes": {
+      "required": ["eyebrow", "headline", "lead", "logos", "quotesLabel", "quotes"],
+      "additionalProperties": false,
+      "properties": {
+        "archetype": true, "label": true, "headlineSize": { "$ref": "#/$defs/headlineSize" },
+        "eyebrow": { "$ref": "#/$defs/label" },
+        "headline": { "$ref": "#/$defs/headline" },
+        "lead": { "$ref": "#/$defs/copy" },
+        "logos": {
+          "type": "array", "minItems": 1,
+          "items": { "$ref": "#/$defs/image" },
+          "description": "Each entry needs maxHeight and maxWidth: the wall only reads evenly when every lockup is capped by eye. One-colour unless keepColor is set."
+        },
+        "quotesLabel": { "$ref": "#/$defs/label" },
+        "quotes": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "required": ["thumb", "quote"], "additionalProperties": false,
+            "properties": {
+              "thumb": { "$ref": "#/$defs/image", "description": "88px square." },
+              "quote": { "$ref": "#/$defs/label", "description": "Rendered italic. Quote real coverage verbatim, including its own quotation marks." }
+            }
+          }
+        }
+      }
+    },
+
+    "pricingTiers": {
+      "required": ["eyebrow", "qualifier", "headline", "tiers"],
+      "additionalProperties": false,
+      "properties": {
+        "archetype": true, "label": true, "headlineSize": { "$ref": "#/$defs/headlineSize" },
+        "eyebrow": { "$ref": "#/$defs/label" },
+        "qualifier": { "$ref": "#/$defs/label" },
+        "headline": { "$ref": "#/$defs/headline" },
+        "tiers": {
+          "type": "array", "minItems": 2, "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": ["name", "price", "category", "includes", "benefits"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "$ref": "#/$defs/label" },
+              "price": { "$ref": "#/$defs/label", "description": "e.g. \"25,000€ + VAT\". Tiers must read low to high." },
+              "category": { "$ref": "#/$defs/label" },
+              "categoryLabel": { "$ref": "#/$defs/label", "default": "Category" },
+              "includes": { "$ref": "#/$defs/label", "description": "The inclusion chip under the price." },
+              "featured": { "type": "boolean", "default": false, "description": "Fills the card with --panel-2. At most one tier, and it must be the highest." },
+              "benefits": {
+                "type": "array", "minItems": 1,
+                "items": {
+                  "oneOf": [
+                    { "$ref": "#/$defs/copy" },
+                    {
+                      "type": "object",
+                      "required": ["text"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "text": { "$ref": "#/$defs/copy" },
+                        "subs": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/copy" } }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "closingPhotoCta": {
+      "required": ["eyebrow", "qualifier", "headline", "lead", "photo", "photoCaptions"],
+      "additionalProperties": false,
+      "properties": {
+        "archetype": true, "label": true, "headlineSize": { "$ref": "#/$defs/headlineSize" },
+        "eyebrow": { "$ref": "#/$defs/label" },
+        "qualifier": { "$ref": "#/$defs/label" },
+        "headline": { "$ref": "#/$defs/headline", "description": "This archetype is set at 700 weight and 0.96 leading, unlike the other headlines." },
+        "lead": { "$ref": "#/$defs/copy", "description": "End on the call to action, in **bold**." },
+        "photo": { "$ref": "#/$defs/image", "description": "Defaults to object-position: center 66%." },
+        "photoCaptions": {
+          "type": "array", "minItems": 2, "maxItems": 2,
+          "items": { "$ref": "#/$defs/label" },
+          "description": "Two mono captions on the photo's bottom gradient strip: left, right."
+        }
+      }
+    }
+  }
+}
