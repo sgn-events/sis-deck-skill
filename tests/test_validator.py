@@ -102,17 +102,29 @@ case("missing image file",
 case("path escapes the assets root",
      lambda c: c["slides"][0]["photo"].__setitem__("src", "../../etc/hosts"),
      "must stay inside the assets root")
-def use_sgn_lockups(c):
+
+# The sample-asset fence can only be exercised where the restricted files actually exist.
+# A fresh clone deliberately has none (see examples/ASSETS.md), so these three skip there.
+SGN_ASSETS = REPO / "examples" / "assets"
+SGN_PANEL = SGN_ASSETS / "photos" / "sportgen-panel.jpg"
+
+
+def use_sgn_cover(c):
+    """Point the fixture at SGN material: both lockups and the cover photograph."""
     c["meta"]["logos"]["lockupOnLight"] = "sgn-investment-summit-black.png"
     c["meta"]["logos"]["lockupOnDark"] = "sgn-investment-summit-white.png"
+    c["slides"][0]["photo"]["src"] = "photos/sportgen-panel.jpg"
+    del c["slides"][1:]
 
 
-case("SGN sample asset without acknowledgement",
-     use_sgn_lockups,
-     "rights-restricted",
-     assets_root=REPO / "examples" / "assets")
-SGN_PANEL = REPO / "examples" / "assets" / "photos" / "sportgen-panel.jpg"
 if SGN_PANEL.is_file():
+    case("SGN sample asset without acknowledgement",
+         use_sgn_cover, "rights-restricted", assets_root=SGN_ASSETS)
+
+    case_ok("SGN sample assets with meta.sampleAssets set",
+            lambda c: (use_sgn_cover(c), c["meta"].__setitem__("sampleAssets", "sgn-internal")),
+            assets_root=SGN_ASSETS)
+
     # A renamed copy, in a directory of otherwise innocent placeholders: only the
     # content hash can catch this one.
     disguised = Path(tempfile.mkdtemp(prefix="sis-disguised-"))
@@ -121,19 +133,13 @@ if SGN_PANEL.is_file():
     shutil.copy2(SGN_PANEL, disguised / "our-own-venue-photo.jpg")
     case("SGN sample asset renamed, caught by content hash",
          lambda c: c["slides"][0]["photo"].__setitem__("src", "our-own-venue-photo.jpg"),
-         "rights-restricted",
-         assets_root=disguised)
+         "rights-restricted", assets_root=disguised)
 else:
-    results.append((True, "SGN sample asset renamed, caught by content hash [skipped: "
-                          "examples/assets not populated — see examples/ASSETS.md]"))
-case_ok("SGN sample assets with meta.sampleAssets set",
-        lambda c: (c["meta"].__setitem__("sampleAssets", "sgn-internal"),
-                   c["slides"][0]["photo"].__setitem__("src", "photos/sportgen-panel.jpg"),
-                   c["meta"]["logos"].__setitem__("lockupOnLight", "sgn-investment-summit-black.png"),
-                   c["meta"]["logos"].__setitem__("lockupOnDark", "sgn-investment-summit-white.png"),
-                   c["slides"].__setitem__(1, c["slides"][0] | {"label": "Cover 2"}),
-                   c["slides"].pop()),
-        assets_root=REPO / "examples" / "assets")
+    for skipped in ("SGN sample asset without acknowledgement",
+                    "SGN sample assets with meta.sampleAssets set",
+                    "SGN sample asset renamed, caught by content hash"):
+        results.append((True, f"{skipped} [skipped: examples/assets not populated "
+                              "— see examples/ASSETS.md]"))
 case("logo without optical caps",
      lambda c: c["slides"][2]["logos"][0].pop("maxHeight"),
      "maxHeight and maxWidth")
