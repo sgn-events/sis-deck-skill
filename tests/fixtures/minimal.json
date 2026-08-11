@@ -1,0 +1,49 @@
+{
+  "_comment": "A valid three-slide deck built entirely from placeholder assets. The tests mutate copies of this to check that each guardrail fires.",
+  "meta": {
+    "event": "Placeholder Summit",
+    "date": "1 January 2030",
+    "city": "Nowhere",
+    "logos": {
+      "lockupOnLight": "lockup-light.png",
+      "lockupOnDark": "lockup-dark.png"
+    }
+  },
+  "slides": [
+    {
+      "archetype": "photo-cover",
+      "label": "Cover",
+      "photo": { "src": "cover.png", "alt": "Placeholder cover photograph" },
+      "kicker": "New for 2030",
+      "headline": "A placeholder [[cover]] headline",
+      "lead": "One sentence of placeholder lead copy for the cover slide.",
+      "factRail": ["[ Placeholder ]", "1 January 2030", "Nowhere"]
+    },
+    {
+      "archetype": "portrait-wall",
+      "label": "Speakers",
+      "eyebrow": "Speakers",
+      "qualifier": "Placeholder qualifier",
+      "columns": 2,
+      "rows": 1,
+      "people": [
+        { "name": "First Person", "role": "Job Title", "org": "Organisation", "photo": { "src": "person.png", "alt": "First Person" } },
+        { "name": "Second Person", "role": "Job Title", "org": "Organisation", "photo": { "src": "person.png", "alt": "Second Person" } }
+      ]
+    },
+    {
+      "archetype": "logo-wall-quotes",
+      "label": "Media",
+      "eyebrow": "Media",
+      "headline": "Media [[presence]]",
+      "lead": "One sentence of placeholder lead copy for the media slide.",
+      "logos": [
+        { "src": "logo.png", "alt": "Placeholder Outlet", "maxHeight": 54, "maxWidth": 240 }
+      ],
+      "quotesLabel": "In the press",
+      "quotes": [
+        { "thumb": { "src": "thumb.png", "alt": "Placeholder Outlet" }, "quote": "“A placeholder pull quote.”" }
+      ]
+    }
+  ]
+}
