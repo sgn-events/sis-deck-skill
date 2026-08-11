@@ -1,0 +1,51 @@
+/* SIS color system — two themes. The LIGHT theme is the live-site default and
+   the recommended default for decks. No saturated accent colour exists in the
+   system: the only accent is SILVER, applied as a text gradient to a single
+   emphasis word. Corners are always sharp (radius 0); rules are 1px hairlines. */
+
+:root {
+  /* ---- Light theme (default) ---- */
+  --bg:        #f6f6f4;            /* page background (off-white) */
+  --bg-2:      #ffffff;            /* panels / cards */
+  --panel-2:   #f0f0ee;            /* highlighted / feat card */
+  --line:      rgba(0,0,0,0.14);   /* rules / grid */
+  --line-2:    rgba(0,0,0,0.07);   /* faint rules, phantom column */
+  --fg:        #131316;            /* text / headings (near-black) */
+  --ink:       #0b0b0d;            /* UI black (buttons, logo) */
+  --dim:       #55555b;            /* secondary text */
+  --mute:      #8c8c92;            /* mono labels, notes */
+
+  /* Silver emphasis gradient (on light background) */
+  --silver: linear-gradient(176deg, #3d3d44 0%, #0d0d10 46%, #6a6a72 100%); /* @kind color */
+
+  /* ---- Semantic aliases ---- */
+  --surface-page:      var(--bg);
+  --surface-card:      var(--bg-2);
+  --surface-feat:      var(--panel-2);
+  --text-strong:       var(--fg);
+  --text-body:         var(--dim);
+  --text-meta:         var(--mute);
+  --rule:              var(--line);
+  --rule-faint:        var(--line-2);
+  --btn-bg:            var(--fg);
+  --btn-fg:            var(--ink);
+}
+
+/* ---- Dark theme (graphite variant) ----
+   Apply with data-theme="dark" on any container. */
+[data-theme="dark"] {
+  --bg:        #0b0b0d;
+  --bg-2:      #131316;
+  --panel-2:   #181820;
+  --line:      rgba(255,255,255,0.12);
+  --line-2:    rgba(255,255,255,0.06);
+  --fg:        #f3f3f1;
+  --ink:       #0b0b0d;
+  --dim:       #a3a3a8;
+  --mute:      #6a6a70;
+
+  --silver: linear-gradient(176deg, #ffffff 0%, #d8d8dc 42%, #97979d 78%, #c9c9cf 100%); /* @kind color */
+
+  --btn-bg:    var(--fg);
+  --btn-fg:    var(--ink);
+}

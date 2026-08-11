@@ -1,0 +1,80 @@
+/* SIS webfonts — SELF-HOSTED variant.
+   Same two families as tokens/fonts.css (Archivo for display + body, IBM Plex
+   Mono for labels), served from disk instead of Google Fonts.
+
+   To use it:
+     1. Place the .woff2 binaries at runtime/fonts/ using the exact filenames
+        below. Both families are SIL Open Font License 1.1; download the
+        binaries from the families' own distributions.
+     2. Generate with:  python3 scripts/new_deck.py content.json --fonts selfhosted
+        (the generator swaps the @import in styles.css to point here and copies
+        runtime/fonts/ into the deck's fonts/ directory).
+
+   The generator FAILS if a referenced binary is missing — it will not silently
+   fall back to a system sans, because that is exactly the defect this design
+   system already shipped once (see docs/TEMPLATING-REPORT.md). */
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/archivo-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/archivo-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/archivo-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/archivo-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/archivo-800.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../fonts/archivo-900.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/ibm-plex-mono-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/ibm-plex-mono-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/ibm-plex-mono-600.woff2') format('woff2');
+}

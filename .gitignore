@@ -1,0 +1,18 @@
+# Sample assets are rights-restricted SGN material and are NEVER committed.
+# See examples/ASSETS.md for where each file comes from and how to copy them in.
+examples/assets/
+
+# Self-hosted font binaries (licensed separately — see runtime/tokens/fonts.selfhosted.css)
+runtime/fonts/
+
+# Generator output
+out/
+/tmp-out/
+*.pdf
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+__pycache__/
+*.pyc

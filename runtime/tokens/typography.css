@@ -1,0 +1,50 @@
+/* SIS typography tokens.
+   Archivo  — display + body.       'Archivo', system-ui, sans-serif
+   IBM Plex Mono — labels, eyebrows, buttons, meta, indices.
+   Titles are UPPERCASE, ExtraBold (800), tight tracking. Mono labels are
+   UPPERCASE with wide tracking (0.18–0.2em), often bracketed: [ 27—28 MAY 2027 ]. */
+
+:root {
+  /* Families */
+  --font-display: 'Archivo', system-ui, -apple-system, sans-serif; /* @kind font */
+  --font-body:    'Archivo', system-ui, -apple-system, sans-serif; /* @kind font */
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace; /* @kind font */
+
+  /* Weights */
+  --w-regular: 400; /* @kind font */
+  --w-medium:  500; /* @kind font */
+  --w-semi:    600; /* @kind font */
+  --w-bold:    700; /* @kind font */
+  --w-xbold:   800; /* @kind font */
+  --w-black:   900; /* @kind font */
+
+  /* Fluid display sizes (deck 1920×1080 reference, fluid down) */
+  --fs-hero:    clamp(46px, 9vw, 142px);   /* @kind font */
+  --fs-h2:      clamp(32px, 5vw, 76px);    /* @kind font */
+  --fs-stat:    clamp(48px, 6vw, 96px);    /* @kind font */
+  --fs-session: clamp(20px, 2vw, 32px);    /* @kind font */
+  --fs-lead:    clamp(17px, 1.4vw, 21px);  /* @kind font */
+  --fs-body:    17px;       /* @kind font */
+  --fs-label:   13px;       /* @kind font */
+  --fs-label-sm:12px;       /* @kind font */
+  --fs-btn:     13px;       /* @kind font */
+
+  /* Tracking */
+  --track-hero:   -0.035em; /* @kind font */
+  --track-h2:     -0.03em;  /* @kind font */
+  --track-stat:   -0.04em;  /* @kind font */
+  --track-session:-0.02em;  /* @kind font */
+  --track-label:  0.2em;    /* @kind font */
+  --track-btn:    0.14em;   /* @kind font */
+
+  /* Line-height */
+  --lh-hero:  0.9;  /* @kind font */
+  --lh-h2:    0.96; /* @kind font */
+  --lh-body:  1.6;  /* @kind font */
+
+  /* Semantic aliases */
+  --text-hero-size:    var(--fs-hero);
+  --text-section-size: var(--fs-h2);
+  --eyebrow-size:      var(--fs-label);
+  --eyebrow-track:     var(--track-label);
+}

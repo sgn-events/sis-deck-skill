@@ -1,0 +1,46 @@
+Copyright (c) 2026 SGN / SPORT[GEN]. All rights reserved.
+
+PROPRIETARY AND CONFIDENTIAL
+
+This repository — the SIS deck skill, its templates, generator, schema, tokens and
+documentation — is the property of SGN / SPORT[GEN]. It embodies a commercial visual
+identity and is not open source.
+
+Permitted, without further permission:
+
+  - Use by SGN / SPORT[GEN] and its employees and contractors, to produce decks for
+    SGN / SPORT[GEN] events and for clients of those events.
+  - Modification for that purpose.
+
+Not permitted without prior written permission from SGN / SPORT[GEN]:
+
+  - Redistribution, publication or sublicensing of this repository or any substantial
+    part of it, in source or compiled form.
+  - Use of the SIS art direction, templates or tokens to produce material for any
+    organisation other than SGN / SPORT[GEN] and its event clients.
+  - Removal or alteration of this notice.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+
+THIRD-PARTY AND EXCLUDED MATERIAL
+
+This licence does not cover, and grants no rights in:
+
+  1. The sample assets referenced by examples/content.json (speaker portraits, media
+     outlet logos, event lockups and photography). They are the property of SGN and of
+     the respective outlets and individuals, are cleared for SGN event marketing use
+     only, and are deliberately not committed to this repository. They must never be
+     reused in another organisation's deck. See examples/ASSETS.md.
+
+  2. The Archivo and IBM Plex Mono typefaces, which are licensed under the SIL Open
+     Font License 1.1 by their respective authors and are not distributed here.
+
+  3. runtime/deck-stage.js, a third-party slide-shell component included as received in
+     the design handoff and unmodified.

@@ -1,0 +1,4 @@
+/* SIS webfonts — Archivo (display + body) + IBM Plex Mono (technical/labels).
+   Loaded from Google Fonts. If self-hosting is required, swap these for
+   @font-face rules pointing at local binaries. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
